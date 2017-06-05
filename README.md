@@ -25,8 +25,8 @@ Dependencias
 
 Iniciar o minikube configurado para utilizar o Docker Registry Local
 
+	$ minikube start 
 	$ eval $(minikube docker-env)
-	$ minikube start --docker-env --insecure-registry=localhost:5000
 
 Fazer o build do projeto e seus dependentes, incluindo a geração das imagens Docker e também dos arquivos yaml e json para deploy no Kubernetes. (Utilizando o fabric8-maven-plugin)
 
@@ -36,9 +36,9 @@ Para fazer o deploy das imagens geradas pelo build dos serviços, rode o seguint
 	
 	$ mvn fabric8:run
 
-Para visualizar o dashboard do Kubernetes rode o seguinte comando e em seguida acessa o link http://localhost:8001/ui/
+Para visualizar o dashboard do Kubernetes rode o seguinte comando
 	
-	$ kubectl proxy
+	$ minikube dashboard
 
 TODO 
 
@@ -46,6 +46,7 @@ TODO
 - Adicionar no BOOK SERVICE a @Entity para BOOK e criar as classes necessárias para o JPA
 - Validar o DNS do Kubernetes para localização dos serviços
 - Adicionar imagem do PostgreSQL no pom.xml do parent do project para que o Fabric8 adicione nos arquivos de deploy automaticamente
+- Adicionar Swagger para endpoint
 
 ERROS CONHECIDOS
 
