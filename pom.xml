@@ -25,6 +25,18 @@
 		<spring-cloud.version>Dalston.SR1</spring-cloud.version>
 	</properties>
 
+	<profiles>
+		<profile>
+			<id>brq.poc-spring-cloud-k8s-poc</id>
+			<modules>
+				<module>eureka-server</module>
+				<module>gateway</module>
+				<module>rating-service</module>
+				<module>book-service</module>
+			</modules>
+		</profile>
+	</profiles>
+
 	<modules>
 		<module>eureka-server</module>
 		<module>gateway</module>
@@ -45,13 +57,14 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- <dependency> <groupId>io.fabric8</groupId> <artifactId>spring-cloud-starter-kubernetes</artifactId> 
+			<version>0.1.6</version> </dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 
 	<build>
 		<plugins>
@@ -73,6 +86,28 @@
 				<groupId>io.fabric8</groupId>
 				<artifactId>fabric8-maven-plugin</artifactId>
 				<version>3.4.1</version>
+				<configuration>
+		          <generator>
+		            <includes>
+		              <include>spring-boot</include>
+		            </includes>
+		            <config>
+		              <spring-boot>
+		                <color>always</color>
+		              </spring-boot>
+		            </config>
+		          </generator>
+		          <enricher>
+		            <excludes>
+		              <exclude>f8-expose</exclude>
+		            </excludes>
+		            <config>
+		              <fmp-service>
+		                <type>NodePort</type>
+		              </fmp-service>
+		            </config>
+		          </enricher>
+				</configuration>
 				<executions>
 					<execution>
 						<id>fmp</id>

@@ -23,7 +23,7 @@ Dependencias
 	minikube
 
 
-Iniciar o minikube configurado para utilizar o Docker Registry Local
+Para desenvolvimento usamos o minikube (), para as imagens geradas pelo build não utilizaremos um Docker Registry, mas sim o daemon do docker com o seguintes comandos:
 
 	$ minikube start 
 	$ eval $(minikube docker-env)
@@ -34,7 +34,7 @@ Fazer o build do projeto e seus dependentes, incluindo a geração das imagens D
 
 Para fazer o deploy das imagens geradas pelo build dos serviços, rode o seguinte comando.
 	
-	$ mvn fabric8:run
+	$ mvn fabric8:deploy
 
 Para visualizar o dashboard do Kubernetes rode o seguinte comando
 	

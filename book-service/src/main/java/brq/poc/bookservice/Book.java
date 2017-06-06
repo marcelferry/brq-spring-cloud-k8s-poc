@@ -1,5 +1,6 @@
 package brq.poc.bookservice;
 
+//@Entity
 public class Book {
 
 	private Long id;
