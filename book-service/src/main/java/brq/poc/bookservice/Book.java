@@ -1,11 +1,24 @@
 package brq.poc.bookservice;
 
-//@Entity
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class Book {
 
+	@Id
 	private Long id;
 	private String author;
 	private String title;
+	
+	@Transient
+	List<Rating> ratings;
+	
+	
+	public Book(){}
 
 	public Book(Long id, String author, String title) {
 		super();
@@ -32,6 +45,14 @@ public class Book {
 
 	public String getTitle() {
 		return title;
+	}
+	
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
+	}
+	
+	public List<Rating> getRatings() {
+		return ratings;
 	}
 
 }

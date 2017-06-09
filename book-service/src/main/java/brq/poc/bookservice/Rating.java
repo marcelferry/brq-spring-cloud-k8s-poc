@@ -1,28 +1,17 @@
-package brq.poc.ratingservice;
+package brq.poc.bookservice;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class Rating {
 	
-	@Id
 	private Long id;
 	
-	@Column(name="book_id")
 	private Long bookId;
 	
 	private int stars;
 	
 	public Rating() {}
-
-	public Rating(Long id, Long bookId, int stars) {
-		super();
-		this.id = id;
-		this.bookId = bookId;
-		this.stars = stars;
-	}
 
 	public Long getId() {
 		return id;

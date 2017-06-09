@@ -1,0 +1,2 @@
+INSERT INTO book VALUES (1, 'Richard', 'Learning Spring Boot') on DUPLICATE KEY UPDATE author = 'Richard';
+INSERT INTO book VALUES (2, 'Robert', 'Spring Boot in Action') on DUPLICATE KEY UPDATE author = 'Robert';
