@@ -28,6 +28,10 @@ Para desenvolvimento usamos o minikube (), para as imagens geradas pelo build n�
 	$ minikube start 
 	$ eval $(minikube docker-env)
 
+Ingress Controller para permitir que os Services possam ser acessados foram do Cluster do k8s
+
+	$ kubectl create -f http://central.maven.org/maven2/io/fabric8/devops/apps/exposecontroller/2.2.268/exposecontroller-2.2.268-kubernetes.yml
+
 Fazer o build do projeto e seus dependentes, incluindo a geração das imagens Docker e também dos arquivos yaml e json para deploy no Kubernetes. (Utilizando o fabric8-maven-plugin)
 
 	$ mvn clean install
@@ -40,11 +44,15 @@ Para visualizar o dashboard do Kubernetes rode o seguinte comando
 	
 	$ minikube dashboard
 
+Para saber qual a url dos serviços que expões acesso externo direto, use os seguintes comandos:
+
+	$ echo $(minikube service eureka-server --url)
+ 	$ echo $(minikube service gateway --url)
+
 TODO 
 
 - Adicionar comunicação entre RATING SERVICE e BOOK SERVICE usando o Spring Cloud Netflix Ribbon
 - Adicionar no BOOK SERVICE a @Entity para BOOK e criar as classes necessárias para o JPA
-- Validar o DNS do Kubernetes para localização dos serviços
 - Adicionar imagem do PostgreSQL no pom.xml do parent do project para que o Fabric8 adicione nos arquivos de deploy automaticamente
 - Adicionar Swagger para endpoint
 
