@@ -1,9 +1,28 @@
 package brq.poc.ratingservice;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Rating {
+
+	@Id
 	private Long id;
+
+	@Column(name = "book_id")
 	private Long bookId;
+
 	private int stars;
+
+	public Rating() {
+	}
+
+	public Rating(Long bookId, int stars) {
+		super();
+		this.bookId = bookId;
+		this.stars = stars;
+	}
 
 	public Rating(Long id, Long bookId, int stars) {
 		super();

@@ -49,12 +49,15 @@ Para saber qual a url dos serviços que expões acesso externo direto, use os se
 	$ echo $(minikube service eureka-server --url)
  	$ echo $(minikube service gateway --url)
 
-TODO 
+Endpoints:
 
-- Adicionar comunicação entre RATING SERVICE e BOOK SERVICE usando o Spring Cloud Netflix Ribbon
-- Adicionar no BOOK SERVICE a @Entity para BOOK e criar as classes necessárias para o JPA
-- Adicionar imagem do PostgreSQL no pom.xml do parent do project para que o Fabric8 adicione nos arquivos de deploy automaticamente
-- Adicionar Swagger para endpoint
+GET  /books/ - Find All Books
+GET  /books/{bookId} - Find book by id
+GET  /books/{bookId}/ratings - Find book ratings by book id
+
+GET  /ratings/ -  Find All Rates
+GET  /ratings/bookId} - Find book by id
+POST /ratings/{bookId}/{stars} - Create a rate for a specific book id
 
 ERROS CONHECIDOS
 
