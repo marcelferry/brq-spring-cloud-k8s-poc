@@ -5,7 +5,7 @@
 
 	<groupId>brq.poc</groupId>
 	<artifactId>spring-cloud-k8s-poc</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>spring-cloud-k8s-poc</name>
@@ -125,8 +125,6 @@
 						<excludes>
 							<exclude>f8-expose</exclude>
 						</excludes>
-						<!-- <config> <fmp-service> <expose>true</expose> <multiPort>true</multiPort> 
-							<type>NodePort</type> </fmp-service> </config> -->
 					</enricher>
 				</configuration>
 				<executions>
