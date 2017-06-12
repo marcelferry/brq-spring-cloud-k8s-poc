@@ -17,17 +17,17 @@ public class RatingServiceController {
 	@Resource
 	RatingRepository ratingRepository;
 
-	@GetMapping("/{bookId}")
+	// @GetMapping("/{bookId}")
 	public List<Rating> findRatingsByBookId(@PathVariable Long bookId) {
 		return ratingRepository.findByBookId(bookId);
 	}
 
-	@GetMapping("/")
+	// @GetMapping("/")
 	public List<Rating> findAllRatings() {
 		return ratingRepository.findAll(); // ratingList;
 	}
 
-	@PostMapping("/{bookId}/{stars}")
+//	@PostMapping("/{bookId}/{stars}")
 	public List<Rating> saveRatingForBookId(@PathVariable Long bookId, @PathVariable Integer stars) {
 
 		Rating r = new Rating(bookId, stars);

@@ -1,4 +1,4 @@
-set mode MySQL;
+drop table rating;
 
 CREATE TABLE IF NOT EXISTS rating (
   id              BIGINT     NOT NULL PRIMARY KEY,

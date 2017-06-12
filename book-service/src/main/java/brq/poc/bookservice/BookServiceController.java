@@ -25,12 +25,12 @@ public class BookServiceController {
 	RestTemplate restTemplate;
 
 
-	@GetMapping("/")
+//	@GetMapping("/")
 	public List<Book> findAllBooks() {
 		return bookRepository.findAll();
 	}
 
-	@GetMapping("/{bookId}")
+//	@GetMapping("/{bookId}")
 	public Book findBook(@PathVariable Long bookId) {
 		Book book = bookRepository.findOne(bookId);
 		return book;
