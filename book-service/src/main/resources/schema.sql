@@ -1,4 +1,5 @@
-set mode MySQL;
+-- set mode MySQL;
+DROP TABLE book;
 
 CREATE TABLE IF NOT EXISTS book (
   id              INT     NOT NULL PRIMARY KEY,
